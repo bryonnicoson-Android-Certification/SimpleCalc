@@ -18,6 +18,7 @@ package com.example.android.SimpleCalc;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -139,7 +140,12 @@ public class MainActivity extends Activity {
     /**
      * @return the operand text which was entered in an {@link EditText}.
      */
+    @NonNull
     private static String getOperandText(EditText operandEditText) {
+
+        if (operandEditText.getText().toString().equals(""))
+            return "0";
+
         return operandEditText.getText().toString();
     }
 }
